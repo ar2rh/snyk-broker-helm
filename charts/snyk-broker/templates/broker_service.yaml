@@ -14,6 +14,7 @@ spec:
       targetPort: {{ .Values.deployment.container.containerPort }}
   selector:
     {{- include "snyk-broker.selectorLabels" . | nindent 4 }}
+  externalTrafficPolicy: Local
   loadBalancerSourceRanges:
     {{- with .Values.service.loadBalancerSourceRanges }}
       {{- toYaml . | nindent 4 }}
