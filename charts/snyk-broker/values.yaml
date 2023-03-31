@@ -341,6 +341,10 @@ service:
  
   # Snyk Broker
   brokerType: ClusterIP
+  
+  annotations: {}
+  
+  loadBalancerSourceRanges: {}
  
   # Container Registry Agent 
   crType: ClusterIP
