@@ -67,3 +67,13 @@ Content of accept.json configuration file (either provided as literal value)
 {{- define "snyk-broker.acceptJson" -}}
 {{- with .Values.acceptJson}}{{.}}{{end}}
 {{- end}}
+
+{{/*
+Service annotations
+*/}}
+{{- define "snyk-broker.annotations" -}}
+helm.sh/chart: {{ include "snyk-broker.chart" . }}
+{{- range $key, $value := .Values.service.annotations }}
+  {{ $key | quote }}: {{ $value }}
+{{- end }}
+{{- end }}
