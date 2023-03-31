@@ -15,6 +15,6 @@ spec:
   selector:
     {{- include "snyk-broker.selectorLabels" . | nindent 4 }}
   loadBalancerSourceRanges:
-    {{- with .Values.service.sourceRanges }}
+    {{- with .Values.service.loadBalancerSourceRanges }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
