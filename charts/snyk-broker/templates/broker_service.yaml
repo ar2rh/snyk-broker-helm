@@ -5,6 +5,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "snyk-broker.labels" . | nindent 4 }}
+  annotations:
+    {{- include "snyk-broker.annotations" . | nindent 4 }}
 spec:
   type: {{ .Values.service.brokerType }}
   ports:
@@ -12,3 +14,7 @@ spec:
       targetPort: {{ .Values.deployment.container.containerPort }}
   selector:
     {{- include "snyk-broker.selectorLabels" . | nindent 4 }}
+  loadBalancerSourceRanges:
+    {{- with .Values.service.sourceRanges }}
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
