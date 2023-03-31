@@ -74,6 +74,6 @@ Service annotations
 {{- define "snyk-broker.annotations" -}}
 helm.sh/chart: {{ include "snyk-broker.chart" . }}
 {{- range $key, $value := .Values.service.annotations }}
-  {{ $key | quote }}: {{ $value }}
+{{ $key | quote }}: {{ $value }}
 {{- end }}
 {{- end }}
