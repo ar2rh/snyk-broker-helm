@@ -73,6 +73,6 @@ Service annotations
 */}}
 {{- define "snyk-broker.annotations" -}}
 {{- range $key, $value := .Values.service.annotations }}
-{{ $key | quote }}: {{ $value }}
+{{ $key | quote }}: {{ $value | quote }}
 {{- end }}
 {{- end }}
